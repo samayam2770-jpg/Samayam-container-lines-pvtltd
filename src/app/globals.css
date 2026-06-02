@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #1F5E3B;
+  --secondary: #B28728;
+}
+
+/*Big-Headings text-[#c9d3d5] */
+/*Paragraphs text-[#6b7280] */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background),var(--primary),var(--secondary);
+  color: var(--foreground,--primary),var(--primary),var(--secondary);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
