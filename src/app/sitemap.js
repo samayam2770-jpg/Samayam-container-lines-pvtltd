@@ -1,36 +1,40 @@
-// const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
 
 export default function sitemap() {
-    return [
-      {
-        url: `${siteUrl}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 1,
-      },
-      {
-        url: `${siteUrl}/#about`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.8,
-      },
-      {
-        url: `${siteUrl}/#services`,
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 0.9,
-      },
-      {
-        url: `${siteUrl}/#gallery`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.7,
-      },
-      {
-        url: `${siteUrl}/#contact`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.9,
-      },
-    ]
-  }
+  return [
+    {
+      url: siteUrl,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${siteUrl}/#about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/#services`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/#gallery`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${siteUrl}/#contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+  ];
+}

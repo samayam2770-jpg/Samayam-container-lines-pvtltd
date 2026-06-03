@@ -13,10 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
 
 export const metadata = {
-  metadataBase: new URL(`${siteUrl}`),
+  metadataBase: new URL(siteUrl),
 
   title: {
     default:
@@ -66,7 +70,7 @@ export const metadata = {
     description:
       "Global logistics and freight forwarding company providing ocean freight, customs clearance, warehousing, marine insurance, transportation.",
 
-    url: `${siteUrl}`,
+    url: siteUrl,
 
     siteName: "Samayam Container Lines Pvt Ltd",
 
@@ -92,7 +96,7 @@ export const metadata = {
     description:
       "Chennai-based logistics and freight forwarding company specializing in global ocean freight solutions.",
 
-    images: ["/logo.jpeg"],
+    images: [`${siteUrl}/logo.jpeg`],
   },
 
   icons: {
@@ -107,9 +111,9 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header/>
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
 
         <script
           type="application/ld+json"
@@ -118,7 +122,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Samayam Container Lines Pvt Ltd",
-              url: `${siteUrl}`,
+              url: siteUrl,
               logo: `${siteUrl}/logo.jpeg`,
               contactPoint: {
                 "@type": "ContactPoint",
