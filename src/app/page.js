@@ -7,7 +7,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import About from "@/components/About";
 import Cta from "@/components/Cta";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+// const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata = {
   title:
