@@ -7,11 +7,8 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import About from "@/components/About";
 import Cta from "@/components/Cta";
 
-// const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
 export const metadata = {
-  title:
-    "Ocean Freight Forwarding & Logistics Services in Chennai",
+  title: "Ocean Freight Forwarding & Logistics Services in Chennai",
 
   description:
     "Samayam Container Lines Pvt Ltd provides ocean freight forwarding, customs clearance, warehousing, transportation, marine insurance, and global logistics solutions from Chennai, India.",
@@ -20,16 +17,16 @@ export const metadata = {
 function Page() {
   return (
     <>
-      {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
+
             name: "Samayam Container Lines Pvt Ltd",
-            url: `${siteUrl}`,
-            logo: `${siteUrl}/logo.jpeg`,
+
+            logo: "/logo.jpeg",
 
             contactPoint: {
               "@type": "ContactPoint",

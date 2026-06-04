@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Which industries do you specialize in?",
     answer:
-      "We work across industries including glass products, solar equipment, seafood exports, pharmaceuticals, chemicals, and industrial cargo.",
+      "We work across industries including IT related products, automobile, clothing & related accessories, agro products, construction & related equipments, glass products, solar equipment, seafood exports, pharmaceuticals, chemicals, and industrial cargo.",
   },
   {
     question: "Do you provide customs clearance services?",
