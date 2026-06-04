@@ -208,15 +208,6 @@ export default function Footer() {
                   >
                     +91 98400 59829
                   </a>
-
-                  <br />
-
-                  <a
-                    href="tel:+914448659829"
-                    aria-label="Call +91 44486 59829"
-                  >
-                    +91 44486 59829
-                  </a>
                 </div>
               </motion.div>
 

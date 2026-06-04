@@ -119,19 +119,12 @@ export default function ContactSection() {
                     Phone
                   </h3>
 
-                  <div className="text-[16px] md:text-[18px] flex flex-col font-medium text-[#111827]">
+                  <div className="text-[16px] md:text-[18px] font-medium text-[#111827]">
                     <a
                       href="tel:+919840059829"
                       aria-label="Call +91 98400 59829"
                     >
                       +919840059829
-                    </a>
-
-                    <a
-                      href="tel:+914448659829"
-                      aria-label="Call +91 44486 59829"
-                    >
-                      +914448659829
                     </a>
                   </div>
                 </div>
