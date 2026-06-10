@@ -10,6 +10,31 @@ import { useState } from "react"
 
 export default function ContactSection() {
 
+  const branches = [
+    {
+      name: "Chennai Office",
+      phone: "+91 9840059829",
+      email: "ram@samayam.org.in",
+      address:
+        "Old No:269/2, New No:126, 2nd Floor, Thambu Chetty Street, Mannady, Parry’s, Chennai – 600001.",
+      mapUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1043446425115!2d80.28894811373422!3d13.09257304105298!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f4fc14edd65%3A0xb149ad61b4ca19a7!2s126%2C%20Thambu%20Chetty%20St%2C%20Mannadi%2C%20George%20Town%2C%20Chennai%2C%20Tamil%20Nadu%20600001!5e0!3m2!1sen!2sin!4v1779690835033!5m2!1sen!2sin",
+    },
+    {
+      name: "Malaysia Office",
+      phone: "+60 123782079",
+      email: "ram@samayam.org.in",
+      address:
+        "SAMAYAM CONTAINER LINES SDN BHD NO:20, LORONG JALAN ISTANA, KAWASAN 1, BANDAR KLANG, 41000 KLANG, SELANGOR DARUL EHSAN, MALAYSIA",
+      mapUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d728.2946121278944!2d101.44767384348705!3d3.0404456034446348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc534db55a0f69%3A0xe4c8d15732f8185b!2s20%2C%20Jalan%20Istana%2C%20Kawasan%201%2C%2041000%20Klang%2C%20Selangor%2C%20Malaysia!5e0!3m2!1sen!2sin!4v1781088688193!5m2!1sen!2sin",
+    },
+  ];
+
+  const [activeBranch, setActiveBranch] = useState(0);
+
+  const branch = branches[activeBranch];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -98,113 +123,147 @@ export default function ContactSection() {
             viewport={{ once: true }}
             className="bg-[var(--primary)]/10 p-6"
           >
-
-            <div className="space-y-12">
-
-              {/* Phone */}
-              <motion.div
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-start gap-7"
-              >
-                <div
-                  aria-hidden="true"
-                  className="w-12 h-12 md:w-16 md:h-16 bg-[var(--secondary)]/20 flex items-center justify-center shrink-0"
+            {/* Branch Switcher */}
+            <div className="relative flex w-fit bg-white border border-black/10 p-1 mb-12">
+              {branches.map((item, index) => (
+                <button
+                  key={item.name}
+                  onClick={() => setActiveBranch(index)}
+                  className="relative px-6 py-3 text-sm font-medium z-10"
                 >
-                  <Phone className="w-6 h-6 md:w-7 md:h-7 text-[black]" />
-                </div>
+                  {activeBranch === index && (
+                    <motion.div
+                      layoutId="activeBranch"
+                      className="absolute inset-0 bg-[var(--primary)]"
+                      transition={{
+                        type: "spring",
+                        stiffness: 350,
+                        damping: 30,
+                      }}
+                    />
+                  )}
 
-                <div>
-                  <h3 className="text-[16px] uppercase tracking-[0.18em] text-[#7b8487]">
-                    Phone
-                  </h3>
-
-                  <div className="text-[16px] md:text-[18px] font-medium text-[#111827]">
-                    <a
-                      href="tel:+919840059829"
-                      aria-label="Call +91 98400 59829"
-                    >
-                      +919840059829
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Email */}
-              <motion.div
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-start gap-7"
-              >
-                <div
-                  aria-hidden="true"
-                  className="w-12 h-12 md:w-16 md:h-16 bg-[var(--secondary)]/20 flex items-center justify-center shrink-0"
-                >
-                  <Mail className="w-6 h-6 md:w-7 md:h-7 text-[black]" />
-                </div>
-
-                <div>
-                  <h3 className="text-[16px] uppercase tracking-[0.18em] text-[#7b8487]">
-                    Contact Email
-                  </h3>
-
-                  <p className="text-[16px] md:text-[18px] font-medium text-[#111827]">
-                    <a
-                      href="mailto:ram@samayam.org.in"
-                      aria-label="Send email to ram@samayam.org.in"
-                    >
-                      ram@samayam.org.in
-                    </a>
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Address */}
-              <motion.div
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-start gap-7"
-              >
-                <div
-                  aria-hidden="true"
-                  className="w-12 h-12 md:w-16 md:h-16 bg-[var(--secondary)]/20 flex items-center justify-center shrink-0"
-                >
-                  <MapPin className="w-6 h-6 md:w-7 md:h-7 text-[black]" />
-                </div>
-
-                <div>
-                  <h3 className="text-[16px] uppercase tracking-[0.18em] text-[#7b8487]">
-                    Address
-                  </h3>
-
-                  <address className="not-italic text-[16px] md:text-[18px] leading-[1.35] font-medium text-[#111827] max-w-[580px]">
-                    Old No:269/2, New No:126, 2nd Floor,
-                    Thambu Chetty Street, Mannady,
-                    Parry’s, Chennai – 600001.
-                  </address>
-                </div>
-              </motion.div>
-
+                  <span
+                    className={`relative text-[16px] ${
+                      activeBranch === index
+                        ? "text-white"
+                        : "text-black"
+                    }`}
+                  >
+                    {item.name}
+                  </span>
+                </button>
+              ))}
             </div>
 
-            {/* Map */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.2,
-              }}
-              viewport={{ once: true }}
-              className="mt-20 overflow-hidden"
+              key={activeBranch}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              <iframe
-                title="Samayam Container Lines Office Location"
-                className="w-full h-[320px] object-cover transition duration-700"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1043446425115!2d80.28894811373422!3d13.09257304105298!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f4fc14edd65%3A0xb149ad61b4ca19a7!2s126%2C%20Thambu%20Chetty%20St%2C%20Mannadi%2C%20George%20Town%2C%20Chennai%2C%20Tamil%20Nadu%20600001!5e0!3m2!1sen!2sin!4v1779690835033!5m2!1sen!2sin"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <div className="space-y-12">
+                {/* Phone */}
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-start gap-7"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="w-12 h-12 md:w-16 md:h-16 bg-[var(--secondary)]/20 flex items-center justify-center shrink-0"
+                  >
+                    <Phone className="w-6 h-6 md:w-7 md:h-7 text-black" />
+                  </div>
+
+                  <div>
+                    <h3 className="text-[16px] uppercase tracking-[0.18em] text-[#7b8487]">
+                      Phone
+                    </h3>
+
+                    <div className="text-[16px] md:text-[18px] font-medium text-[#111827]">
+                      <a
+                        href={`tel:${branch.phone}`}
+                        aria-label={`Call ${branch.phone}`}
+                      >
+                        {branch.phone}
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Email */}
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-start gap-7"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="w-12 h-12 md:w-16 md:h-16 bg-[var(--secondary)]/20 flex items-center justify-center shrink-0"
+                  >
+                    <Mail className="w-6 h-6 md:w-7 md:h-7 text-black" />
+                  </div>
+
+                  <div>
+                    <h3 className="text-[16px] uppercase tracking-[0.18em] text-[#7b8487]">
+                      Contact Email
+                    </h3>
+
+                    <p className="text-[16px] md:text-[18px] font-medium text-[#111827]">
+                      <a
+                        href={`mailto:${branch.email}`}
+                        aria-label={`Send email to ${branch.email}`}
+                      >
+                        {branch.email}
+                      </a>
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Address */}
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-start gap-7"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="w-12 h-12 md:w-16 md:h-16 bg-[var(--secondary)]/20 flex items-center justify-center shrink-0"
+                  >
+                    <MapPin className="w-6 h-6 md:w-7 md:h-7 text-black" />
+                  </div>
+
+                  <div>
+                    <h3 className="text-[16px] uppercase tracking-[0.18em] text-[#7b8487]">
+                      Address
+                    </h3>
+
+                    <address className="not-italic text-[16px] md:text-[18px] leading-[1.35] font-medium text-[#111827] max-w-[580px]">
+                      {branch.address}
+                    </address>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Map */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.2,
+                }}
+                className="mt-12 overflow-hidden"
+              >
+                <iframe
+                  title={`${branch.name} Location`}
+                  className="w-full h-[320px] object-cover transition duration-700"
+                  src={branch.mapUrl}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
 
