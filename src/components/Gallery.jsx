@@ -9,42 +9,42 @@ export default function GallerySection() {
       title: "Ocean Freight Operations",
       category: "Global Shipping",
       image:
-        "https://images.pexels.com/photos/262353/pexels-photo-262353.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop",
       height: "h-[320px]",
     },
     {
       title: "Container Logistics",
       category: "Cargo Handling",
       image:
-        "https://images.pexels.com/photos/753331/pexels-photo-753331.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1600&auto=format&fit=crop",
       height: "h-[500px]",
     },
     {
       title: "Warehouse Management",
       category: "Storage Solutions",
       image:
-        "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop",
       height: "h-[420px]",
     },
     {
       title: "Road Transportation",
       category: "Inland Freight",
       image:
-      "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?q=80&w=1600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop",
       height: "h-[400px]",
     },
     {
       title: "Port Cargo Services",
       category: "Freight Network",
       image:
-        "https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1600&auto=format&fit=crop",
       height: "h-[520px]",
     },
     {
       title: "International Delivery",
       category: "Supply Chain",
       image:
-        "https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=1600&auto=format&fit=crop",
       height: "h-[300px]",
     },
   ]

@@ -13,7 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
 export const metadata = {
+  metadataBase: new URL(`${siteUrl}`),
+
   title: {
     default:
       "Samayam Container Lines Pvt Ltd | Ocean Freight Forwarder in Chennai",
@@ -51,6 +55,10 @@ export const metadata = {
     follow: true,
   },
 
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
     title:
       "Samayam Container Lines Pvt Ltd | Ocean Freight Forwarder in Chennai",
@@ -58,11 +66,13 @@ export const metadata = {
     description:
       "Global logistics and freight forwarding company providing ocean freight, customs clearance, warehousing, marine insurance, transportation.",
 
+    url: `${siteUrl}`,
+
     siteName: "Samayam Container Lines Pvt Ltd",
 
     images: [
       {
-        url: "/logo.jpeg",
+        url: `${siteUrl}/logo.jpeg`,
         width: 1200,
         height: 630,
         alt: "Samayam Container Lines Pvt Ltd",
@@ -97,9 +107,9 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header />
+        <Header/>
         {children}
-        <Footer />
+        <Footer/>
 
         <script
           type="application/ld+json"
@@ -108,7 +118,8 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Samayam Container Lines Pvt Ltd",
-              logo: "/logo.jpeg",
+              url: `${siteUrl}`,
+              logo: `${siteUrl}/logo.jpeg`,
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+91-9840059829",
