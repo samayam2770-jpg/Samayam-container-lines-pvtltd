@@ -9,8 +9,31 @@ import {
   MapPin,
   Phone,
 } from "lucide-react"
+import { useState } from "react"
 
 export default function Footer() {
+
+  const branches = [
+    {
+      name: "Chennai Office",
+      phone: "+91 9840059829",
+      email: "ram@samayam.org.in",
+      address:
+        "Old No:269/2, New No:126, 2nd Floor, Thambu Chetty Street, Mannady, Parry’s, Chennai – 600001.",
+    },
+    {
+      name: "Malaysia Office",
+      phone: "+60 123782079",
+      email: "ram@samayam.org.in",
+      address:
+        "No:20, Lorong Jalan Istana, Kawasan 1, Bandar Klang, 41000 Klang, Selangor Darul Ehsan, Malaysia",
+    },
+  ];
+
+  const [activeBranch, setActiveBranch] = useState(0);
+
+  const branch = branches[activeBranch];
+
   return (
     <footer
       className="relative overflow-hidden bg-[#f5f5f3] pt-6 lg:pt-10 border-t border-[#d8dfe0]"
@@ -192,6 +215,39 @@ export default function Footer() {
 
             <div className="mt-6 space-y-6">
 
+            {/* Branch Switcher */}
+              <div className="relative flex w-fit bg-white border border-black/10">
+                {branches.map((item, index) => (
+                  <button
+                    key={item.name}
+                    onClick={() => setActiveBranch(index)}
+                    className="relative px-3 py-2 text-sm font-medium z-10"
+                  >
+                    {activeBranch === index && (
+                      <motion.div
+                        layoutId="footerActiveBranch"
+                        className="absolute inset-0 bg-[var(--primary)]"
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+
+                    <span
+                      className={`relative text-[15px] ${
+                        activeBranch === index
+                          ? "text-white"
+                          : "text-black"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
+                  </button>
+                ))}
+              </div>
+
               <motion.div
                 whileHover={{ x: 3 }}
                 className="flex items-start gap-4"
@@ -203,10 +259,10 @@ export default function Footer() {
 
                 <div className="text-[16px] text-[#111827]">
                   <a
-                    href="tel:+919840059829"
-                    aria-label="Call +91 98400 59829"
+                    href={`tel:${branch.phone}`}
+                    aria-label={branch.phone}
                   >
-                    +91 98400 59829
+                    {branch.phone}
                   </a>
                 </div>
               </motion.div>
@@ -221,17 +277,17 @@ export default function Footer() {
                 />
 
                 <a
-                  href="mailto:ram@samayam.org.in"
+                  href={`mailto:${branch.email}`}
                   aria-label="Email SAMAYAM Container Lines"
                   className="text-[16px] text-[#111827]"
                 >
-                  ram@samayam.org.in
+                  {branch.email}
                 </a>
               </motion.div>
 
               <motion.div
                 whileHover={{ x: 3 }}
-                className="flex items-start gap-4"
+                className="grid grid-cols-[0.01fr_1fr] items-start gap-4"
               >
                 <MapPin
                   className="mt-1 h-5 w-5 text-[#1F5E2C]"
@@ -239,12 +295,16 @@ export default function Footer() {
                 />
 
                 <p className="text-[16px] leading-7 text-[#111827]">
+                  {branch.address}
+                </p>
+
+                {/* <p className="text-[16px] leading-7 text-[#111827]">
                   Old No:269/2, New No:126,
                   <br />
                   2nd Floor, Thambu Chetty Street,
                   <br />
                   Mannady, Chennai – 600001.
-                </p>
+                </p> */}
               </motion.div>
 
             </div>

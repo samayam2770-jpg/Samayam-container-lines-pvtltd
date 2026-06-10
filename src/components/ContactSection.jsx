@@ -133,7 +133,7 @@ export default function ContactSection() {
                 >
                   {activeBranch === index && (
                     <motion.div
-                      layoutId="activeBranch"
+                      layoutId="contactActiveBranch"
                       className="absolute inset-0 bg-[var(--primary)]"
                       transition={{
                         type: "spring",
